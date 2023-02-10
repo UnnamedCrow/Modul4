@@ -10,6 +10,33 @@ namespace Modul4
     {
         static void Main(string[] args)
         {
+
+            /// practice with Console.BackgroungColor
+            /// reading color from user
+            Console.WriteLine("Please enter background color");
+            string Color = Console.ReadLine();
+
+            /// logical block
+            /// 
+            if (Color == "red")
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.WriteLine("You chose red color!");
+            }
+            else if (Color == "green")
+            {
+                Console.BackgroundColor = ConsoleColor.Green;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.WriteLine("You chose green color!");
+            }
+            else
+            {
+                Console.BackgroundColor = ConsoleColor.Cyan;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.WriteLine("You chose cyan color!");
+            }
+
             /// 4.1.8 try to exclude OR
             /// 
             int a = 7, b = 6;
@@ -41,7 +68,7 @@ namespace Modul4
             var V = a != b ? a + b : b;
             Console.WriteLine(V);
             Console.ReadLine();
-                        
+           
         }
     }
 }
