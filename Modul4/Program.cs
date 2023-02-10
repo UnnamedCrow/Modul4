@@ -10,36 +10,44 @@ namespace Modul4
     {
         static void Main(string[] args)
         {
-
+            /// 4.1.18
             /// practice with Console.BackgroungColor
             /// reading color from user
             Console.WriteLine("Please enter background color");
-            string Color = Console.ReadLine();
+
 
             /// logical block
             /// 
-            if (Color == "red")
+            switch (Console.ReadLine())
             {
-                Console.BackgroundColor = ConsoleColor.Red;
-                Console.ForegroundColor = ConsoleColor.Black;
-                Console.WriteLine("You chose red color!");
-            }
-            else if (Color == "green")
-            {
-                Console.BackgroundColor = ConsoleColor.Green;
-                Console.ForegroundColor = ConsoleColor.Black;
-                Console.WriteLine("You chose green color!");
-            }
-            else
-            {
-                Console.BackgroundColor = ConsoleColor.Cyan;
-                Console.ForegroundColor = ConsoleColor.Black;
-                Console.WriteLine("You chose cyan color!");
+                case "red":
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.WriteLine("You chose red color!");
+                    break;
+
+                case "green":
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.WriteLine("You chose green color!");
+                    break;
+
+                case "cyan":
+                    Console.BackgroundColor = ConsoleColor.Cyan;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.WriteLine("You chose cyan color!");
+                    break;
+                default:
+                    Console.BackgroundColor = ConsoleColor.Yellow;
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("You chose cyan color!");
+                    break;
             }
 
-            /// 4.1.8 try to exclude OR
-            /// 
-            int a = 7, b = 6;
+
+                /// 4.1.8 try to exclude OR
+                /// 
+                int a = 7, b = 6;
             bool c = (a != b) ^ (a > b);
             Console.WriteLine("true ^ true = {0}", c);
             c = (a == b) ^ (a < b);
