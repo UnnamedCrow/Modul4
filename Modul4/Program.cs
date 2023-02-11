@@ -18,7 +18,7 @@ namespace Modul4
 
             /// logical block
             /// 
-            
+
             switch (Console.ReadLine())
             {
                 case "red":
@@ -46,19 +46,25 @@ namespace Modul4
                     break;
             }
 
-            /// 4.1.18 try optimisation choise color
+            /// 4.2 try optimisation choise color in cycle
             /// 
-            Console.WriteLine("Please enter new console color from 1 to 14");
-            bool ColorResult =  int.TryParse(Console.ReadLine(), out int Color);
-            if (ColorResult && Color >= 0 && Color <= 14)
+            for (int i = 0; i < 5; i++)
             {
-                Console.BackgroundColor = (ConsoleColor) Color;
-                if (Color == 0)
+                Console.WriteLine("Please enter new console color from 1 to 14");
+                bool ColorResult = int.TryParse(Console.ReadLine(), out int Color);
+                if (ColorResult && Color >= 0 && Color <= 14)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.BackgroundColor = (ConsoleColor)Color;
+                    if (Color == 0)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Black;
+                    }
                 }
             }
-            
             /// 4.1.8 try to exclude OR
             /// 
             int a = 7, b = 6;
@@ -87,6 +93,7 @@ namespace Modul4
             }
 
             /// 4.1.15 try ternary operation
+            /// 
             var V = a != b ? a + b : b;
             Console.WriteLine(V);
             Console.ReadLine();
