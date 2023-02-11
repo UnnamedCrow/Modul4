@@ -15,10 +15,8 @@ namespace Modul4
             /// reading color from user
             Console.WriteLine("Please enter background color");
 
-
             /// logical block
             /// 
-
             switch (Console.ReadLine())
             {
                 case "red":
@@ -50,11 +48,37 @@ namespace Modul4
             /// 
             for (int i = 0; i < 5; i++)
             {
+
                 Console.WriteLine("Please enter new console color from 1 to 14");
-                bool ColorResult = int.TryParse(Console.ReadLine(), out int Color);
+                bool colorResult = int.TryParse(Console.ReadLine(), out int color);
+                if (colorResult && color >= 0 && color <= 14)
+                {
+                    Console.BackgroundColor = (ConsoleColor) color;
+                    if (color == 0)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Black;
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            /// 4.2 try to use cycle "while" for choise console color
+            /// 
+            bool ColorResult = true;
+            while (ColorResult)
+            {
+                Console.WriteLine("Please enter new console color from 1 to 14");
+                ColorResult = int.TryParse(Console.ReadLine(), out int Color);
                 if (ColorResult && Color >= 0 && Color <= 14)
                 {
-                    Console.BackgroundColor = (ConsoleColor)Color;
+                    Console.BackgroundColor = (ConsoleColor) Color;
                     if (Color == 0)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
@@ -64,7 +88,9 @@ namespace Modul4
                         Console.ForegroundColor = ConsoleColor.Black;
                     }
                 }
+                
             }
+
             /// 4.1.8 try to exclude OR
             /// 
             int a = 7, b = 6;
