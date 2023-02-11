@@ -18,6 +18,7 @@ namespace Modul4
 
             /// logical block
             /// 
+            
             switch (Console.ReadLine())
             {
                 case "red":
@@ -39,15 +40,28 @@ namespace Modul4
                     break;
                 default:
                     Console.BackgroundColor = ConsoleColor.Yellow;
-                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Black;
                     Console.WriteLine("You chose cyan color!");
+
                     break;
             }
 
-
-                /// 4.1.8 try to exclude OR
-                /// 
-                int a = 7, b = 6;
+            /// 4.1.18 try optimisation choise color
+            /// 
+            Console.WriteLine("Please enter new console color from 1 to 14");
+            bool ColorResult =  int.TryParse(Console.ReadLine(), out int Color);
+            if (ColorResult && Color >= 0 && Color <= 14)
+            {
+                Console.BackgroundColor = (ConsoleColor) Color;
+                if (Color == 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                }
+            }
+            
+            /// 4.1.8 try to exclude OR
+            /// 
+            int a = 7, b = 6;
             bool c = (a != b) ^ (a > b);
             Console.WriteLine("true ^ true = {0}", c);
             c = (a == b) ^ (a < b);
@@ -59,7 +73,7 @@ namespace Modul4
 
             /// 4.1.13 try try to make logical brances
             /// 
-            if (a==b)
+            if (a == b)
             {
                 Console.WriteLine("Condition true");
             }
@@ -76,7 +90,7 @@ namespace Modul4
             var V = a != b ? a + b : b;
             Console.WriteLine(V);
             Console.ReadLine();
-           
+
         }
     }
 }
