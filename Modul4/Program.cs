@@ -122,6 +122,18 @@ namespace Modul4
             /// 
             var V = a != b ? a + b : b;
             Console.WriteLine(V);
+
+            /// 4.3.2
+            /// try to read and write string array
+            /// 
+            Console.WriteLine("Please enter your name");
+            string Name = Console.ReadLine();
+            Console.WriteLine("Your name to spell:");
+            for (int i = 0; i < Name.Length; i++)
+            {
+                Console.Write(Name[i]);               
+            }
+            Console.WriteLine("Last letter in your name {0}", Name[Name.Length - 1]);
             Console.ReadLine();
 
         }
