@@ -190,7 +190,7 @@ namespace Modul4
                 ArraySum+= ArrayTwelve[i];
                 Console.WriteLine(ArrayTwelve[i]);
             }
-            Console.WriteLine(ArraySum);
+            Console.WriteLine("Sum of aaray elements = {0}",ArraySum);
 
             /// 4.3.14 
             /// write all values of jagged array
@@ -206,6 +206,20 @@ namespace Modul4
                 }
                 Console.WriteLine();
             }
+
+            /// 4.3.15 
+            /// find all positive elements
+            int[] ArrayFifteen = {3, -1, 2, -2, 5, 5, 7, 0, 8, -7, -2, -4};
+            int PositiveCounter = 0;
+            foreach(int item in ArrayFifteen)
+            {
+                Console.Write(item + " ");
+                if(item > 0)
+                {
+                    PositiveCounter++;
+                }
+            }
+            Console.WriteLine("\n Amount of positive values" + PositiveCounter);
             Console.ReadLine();
         }
     }
