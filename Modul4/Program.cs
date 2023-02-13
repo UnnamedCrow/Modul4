@@ -53,7 +53,7 @@ namespace Modul4
                 bool colorResult = int.TryParse(Console.ReadLine(), out int color);
                 if (colorResult && color >= 0 && color <= 14)
                 {
-                    Console.BackgroundColor = (ConsoleColor) color;
+                    Console.BackgroundColor = (ConsoleColor)color;
                     if (color == 0)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
@@ -78,7 +78,7 @@ namespace Modul4
                 ColorResult = int.TryParse(Console.ReadLine(), out int Color);
                 if (ColorResult && Color >= 0 && Color <= 14)
                 {
-                    Console.BackgroundColor = (ConsoleColor) Color;
+                    Console.BackgroundColor = (ConsoleColor)Color;
                     if (Color == 0)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
@@ -88,7 +88,7 @@ namespace Modul4
                         Console.ForegroundColor = ConsoleColor.Black;
                     }
                 }
-                
+
             }
 
             /// 4.1.8 
@@ -142,11 +142,71 @@ namespace Modul4
             Console.WriteLine("Your name to spell from the end:");
             for (int i = Name.Length - 1; i >= 0; --i)
             {
-                Console.Write(Name[i] + " ");               
+                Console.Write(Name[i] + " ");
             }
             Console.WriteLine("Last letter in your name {0}", Name[0]);
-            Console.ReadLine();
 
+            /// 4.3.9
+            /// try to use array with rank 2
+            int[,] NewArray = { { 1, 2, 4, 6 }, { 1, 3, 5, 7 } };
+            foreach (int newArray in NewArray)
+            {
+                Console.Write(newArray + " ");
+            }
+            Console.WriteLine();
+
+            /// 4.3.11
+            /// write values of colomns
+            int[,] ArrayEleven = { { 1, 2, 3 }, { 5, 6, 7 }, { 8, 9, 10 }, { 11, 12, 13 } };
+            for (int i = 0; i < ArrayEleven.GetUpperBound(1) + 1; i++)
+            {
+                for (int k = 0; k < ArrayEleven.GetUpperBound(0) + 1; k++)
+                {
+                    Console.Write(ArrayEleven[k, i] + " ");
+                }
+                Console.WriteLine();
+            }
+
+            /// 4.3.12 and 4.3.13
+            /// array sorting and sum of array elements
+            int ArraySum = 0;
+            int[] ArrayTwelve = { 5, 6, 9, 1, 3, 2, 4 };
+            for (int k = 0; k < ArrayTwelve.Length - 1; k++)
+            {
+                for (int i = 0; i < ArrayTwelve.Length - 1; i++)
+                {
+
+                    if (ArrayTwelve[i] > ArrayTwelve[i + 1])
+                    {
+                        int item = ArrayTwelve[i];
+                        ArrayTwelve[i] = ArrayTwelve[i + 1];
+                        ArrayTwelve[i + 1] = item;
+                    }
+
+                }
+            }
+            for (int i = 0; i <= ArrayTwelve.Length - 1; i++)
+            {
+                ArraySum+= ArrayTwelve[i];
+                Console.WriteLine(ArrayTwelve[i]);
+            }
+            Console.WriteLine(ArraySum);
+
+            /// 4.3.14 
+            /// write all values of jagged array
+            int[][] ArrayFourteen = new int[3][];
+            ArrayFourteen[0] = new int[2] { 1, 2 };
+            ArrayFourteen[1] = new int[7] { 1, 2, 3, 1, 6, 2, 1};
+            ArrayFourteen[2] = new int[5] { 1, 2, 3, 4, 5 };
+            foreach (var Sting in ArrayFourteen)
+            {
+                foreach(var item in Sting)
+                {
+                    Console.Write(item + " ");
+                }
+                Console.WriteLine();
+            }
+            Console.ReadLine();
         }
     }
 }
