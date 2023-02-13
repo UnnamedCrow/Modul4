@@ -44,8 +44,8 @@ namespace Modul4
                     break;
             }
 
-            /// 4.2 try optimisation choise color in cycle
-            /// 
+            /// 4.2 
+            /// try optimisation choise color in cycle
             for (int i = 0; i < 5; i++)
             {
 
@@ -69,8 +69,8 @@ namespace Modul4
                 }
             }
 
-            /// 4.2 try to use cycle "while" for choise console color
-            /// 
+            /// 4.2 
+            /// try to use cycle "while" for choise console color
             bool ColorResult = true;
             while (ColorResult)
             {
@@ -91,8 +91,8 @@ namespace Modul4
                 
             }
 
-            /// 4.1.8 try to exclude OR
-            /// 
+            /// 4.1.8 
+            /// try to exclude OR
             int a = 7, b = 6;
             bool c = (a != b) ^ (a > b);
             Console.WriteLine("true ^ true = {0}", c);
@@ -103,8 +103,8 @@ namespace Modul4
             c = (a == b) ^ (a > b);
             Console.WriteLine("false ^ true = {0}", c);
 
-            /// 4.1.13 try try to make logical brances
-            /// 
+            /// 4.1.13 
+            /// try try to make logical brances
             if (a == b)
             {
                 Console.WriteLine("Condition true");
@@ -118,8 +118,8 @@ namespace Modul4
                 Console.WriteLine("Condition false and b={0} > 10", b);
             }
 
-            /// 4.1.15 try ternary operation
-            /// 
+            /// 4.1.15 
+            /// try ternary operation
             var V = a != b ? a + b : b;
             Console.WriteLine(V);
 
@@ -129,11 +129,22 @@ namespace Modul4
             Console.WriteLine("Please enter your name");
             string Name = Console.ReadLine();
             Console.WriteLine("Your name to spell:");
-            for (int i = 0; i < Name.Length; i++)
+
+            // cycle foreach
+            foreach (char letter in Name)
             {
-                Console.Write(Name[i]);               
+                Console.Write(letter + " ");
             }
             Console.WriteLine("Last letter in your name {0}", Name[Name.Length - 1]);
+
+            /// 4.3.7
+            /// try to write Name from the end
+            Console.WriteLine("Your name to spell from the end:");
+            for (int i = Name.Length - 1; i >= 0; --i)
+            {
+                Console.Write(Name[i] + " ");               
+            }
+            Console.WriteLine("Last letter in your name {0}", Name[0]);
             Console.ReadLine();
 
         }
