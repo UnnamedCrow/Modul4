@@ -190,7 +190,7 @@ namespace Modul4
                 ArraySum+= ArrayTwelve[i];
                 Console.WriteLine(ArrayTwelve[i]);
             }
-            Console.WriteLine("Sum of aaray elements = {0}",ArraySum);
+            Console.WriteLine("Sum of aray elements = {0}",ArraySum);
 
             /// 4.3.14 
             /// write all values of jagged array
@@ -211,7 +211,7 @@ namespace Modul4
             /// find all positive elements
             int[] ArrayFifteen = {3, -1, 2, -2, 5, 5, 7, 0, 8, -7, -2, -4};
             int PositiveCounter = 0;
-            foreach(int item in ArrayFifteen)
+            foreach (int item in ArrayFifteen)
             {
                 Console.Write(item + " ");
                 if(item > 0)
@@ -219,7 +219,62 @@ namespace Modul4
                     PositiveCounter++;
                 }
             }
-            Console.WriteLine("\n Amount of positive values" + PositiveCounter);
+            Console.WriteLine("\n Amount of positive values = " + PositiveCounter);
+
+            /// 4.3.16
+            /// find amount of positive values in array with rank 2
+            PositiveCounter= 0;
+            int[,] ArraySixteen = { { -5, 6, 9, 1, 2, -3 }, { -8, 8, 1, 1, 2, -3 } };
+            foreach (var item in ArraySixteen)
+            {
+                Console.Write(item + " ");
+                if (item > 0)
+                {
+                    PositiveCounter++;
+                }
+            }
+            Console.WriteLine("\n Amount of positive values = " + PositiveCounter);
+
+            /// 4.3.17
+            /// sorting of array with rank 2
+            // show the array
+            Console.WriteLine("This is array without sorting:");
+            for (int i = 0; i < ArraySixteen.GetUpperBound(0) + 1; i++)
+            {
+                for (int k = 0; k < ArraySixteen.GetUpperBound(1) + 1; k++)
+                {
+                    Console.Write(ArraySixteen[i , k] + " ");
+                }
+                Console.WriteLine();
+            }
+
+            // sorting of array
+            for (int i = 0; i < ArraySixteen.GetUpperBound(0) + 1; i++)
+            {
+                for (int k = 0; k < ArraySixteen.GetUpperBound(1); k++)
+                {
+                    for (int t = 0; t < ArraySixteen.GetUpperBound(1); t++)
+                    {
+                        if (ArraySixteen[i , t] > ArraySixteen[i, t + 1])
+                        {
+                            int item = ArraySixteen[i , t + 1];
+                            ArraySixteen[i, t + 1] = ArraySixteen[i, t];
+                            ArraySixteen[i, t] = item;
+                        }
+                    }
+                }
+            }
+            // show sorting array
+            Console.WriteLine("This is array after sorting:");
+            for (int i = 0; i < ArraySixteen.GetUpperBound(0) + 1; i++)
+            {
+                for (int k = 0; k < ArraySixteen.GetUpperBound(1) + 1; k++)
+                {
+                    Console.Write(ArraySixteen[i, k] + " ");
+                }
+                Console.WriteLine();
+            }
+
             Console.ReadLine();
         }
     }
