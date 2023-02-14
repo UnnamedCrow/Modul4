@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +10,16 @@ namespace Modul4
 {
     internal class Program
     {
+        /// 4.4.5
+        /// Add a tuple for pet information
+        enum PetType
+        {
+            dog = 1,
+            cat,
+            fish,
+            hamster,
+            turtile
+        }
         static void Main(string[] args)
         {
             /// 4.1.18
@@ -187,20 +199,20 @@ namespace Modul4
             }
             for (int i = 0; i <= ArrayTwelve.Length - 1; i++)
             {
-                ArraySum+= ArrayTwelve[i];
+                ArraySum += ArrayTwelve[i];
                 Console.WriteLine(ArrayTwelve[i]);
             }
-            Console.WriteLine("Sum of aray elements = {0}",ArraySum);
+            Console.WriteLine("Sum of aray elements = {0}", ArraySum);
 
             /// 4.3.14 
             /// write all values of jagged array
             int[][] ArrayFourteen = new int[3][];
             ArrayFourteen[0] = new int[2] { 1, 2 };
-            ArrayFourteen[1] = new int[7] { 1, 2, 3, 1, 6, 2, 1};
+            ArrayFourteen[1] = new int[7] { 1, 2, 3, 1, 6, 2, 1 };
             ArrayFourteen[2] = new int[5] { 1, 2, 3, 4, 5 };
             foreach (var Sting in ArrayFourteen)
             {
-                foreach(var item in Sting)
+                foreach (var item in Sting)
                 {
                     Console.Write(item + " ");
                 }
@@ -209,12 +221,12 @@ namespace Modul4
 
             /// 4.3.15 
             /// find all positive elements
-            int[] ArrayFifteen = {3, -1, 2, -2, 5, 5, 7, 0, 8, -7, -2, -4};
+            int[] ArrayFifteen = { 3, -1, 2, -2, 5, 5, 7, 0, 8, -7, -2, -4 };
             int PositiveCounter = 0;
             foreach (int item in ArrayFifteen)
             {
                 Console.Write(item + " ");
-                if(item > 0)
+                if (item > 0)
                 {
                     PositiveCounter++;
                 }
@@ -223,8 +235,8 @@ namespace Modul4
 
             /// 4.3.16
             /// find amount of positive values in array with rank 2
-            PositiveCounter= 0;
-            int[,] ArraySixteen = { { -5, 6, 9, 1, 2, -3 }, { -8, 8, 1, 1, 2, -3 } };
+            PositiveCounter = 0;
+            int[,] ArraySixteen = { { -5, 6, 9, 1, 2, -3, -10 }, { -8, 8, 1, 1, 2, -3, -20 } };
             foreach (var item in ArraySixteen)
             {
                 Console.Write(item + " ");
@@ -243,7 +255,7 @@ namespace Modul4
             {
                 for (int k = 0; k < ArraySixteen.GetUpperBound(1) + 1; k++)
                 {
-                    Console.Write(ArraySixteen[i , k] + " ");
+                    Console.Write(ArraySixteen[i, k] + " ");
                 }
                 Console.WriteLine();
             }
@@ -253,11 +265,11 @@ namespace Modul4
             {
                 for (int k = 0; k < ArraySixteen.GetUpperBound(1); k++)
                 {
-                    for (int t = 0; t < ArraySixteen.GetUpperBound(1); t++)
+                    for (int t = 0; t < ArraySixteen.GetUpperBound(1) - k; t++)
                     {
-                        if (ArraySixteen[i , t] > ArraySixteen[i, t + 1])
+                        if (ArraySixteen[i, t] > ArraySixteen[i, t + 1])
                         {
-                            int item = ArraySixteen[i , t + 1];
+                            int item = ArraySixteen[i, t + 1];
                             ArraySixteen[i, t + 1] = ArraySixteen[i, t];
                             ArraySixteen[i, t] = item;
                         }
@@ -275,7 +287,35 @@ namespace Modul4
                 Console.WriteLine();
             }
 
+            /// 4.4.1
+            /// Add a tuple for user information
+            (string name, int age, string birthday, string color) Anketa;
+            Console.Write("Please enter your name: ");
+            Anketa.name = Console.ReadLine();
+            Console.Write("Please enter your age: ");
+            Anketa.age = int.Parse(Console.ReadLine());
+            Console.Write("Please enter your favourite color: ");
+            Anketa.color = Console.ReadLine();
+            Console.WriteLine("Your name is {0}, your age is {1}\n and your favourite color is {2}", Anketa.name, Anketa.age, Anketa.color);
+
+            /// 4.4.5
+            /// Add a tuple for pet information
+            (string Name, PetType Type, double Age, int NameCount) Pet;
+            Console.Write("Please enter name of your pet: ");
+            Pet.Name = Console.ReadLine();
+            Console.Write("Please enter type of your pet Dog - 1, Cat - 2, Hamster - 3, turtile -4 : ");
+            Pet.Type = (PetType)int.Parse(Console.ReadLine());
+            Console.Write("Please enter age your pet : ");
+            Pet.Age = double.Parse(Console.ReadLine());
+            Pet.NameCount = Pet.Name.Length;
+            Console.WriteLine("Your pet name is {0}, his type is {1}, his age is {2}\n and his name consist {3} letters", Pet.Name, Pet.Type, Pet.Age, Pet.NameCount);
             Console.ReadLine();
         }
+
+            
+            
+            
+            
+        
     }
 }
